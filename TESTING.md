@@ -29,3 +29,10 @@
 
 - Full playthrough tested on a second Windows machine before submission.
 - Upload the generated JAR to a GitHub Release and tag it as `v1.0.0` for final delivery.
+
+## Submission Notes
+
+- The game was built successfully with `.\gradlew.bat desktop:dist`.
+- The runnable JAR was tested with `java -jar .\desktop\build\libs\desktop-1.0.jar`.
+- Bug tracking was documented in this testing checklist and fixed-bug log.
+- The game was tested on Windows desktop.
