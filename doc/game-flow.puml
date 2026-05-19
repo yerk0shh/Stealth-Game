@@ -1,0 +1,14 @@
+@startuml
+
+title Stealth Escape - Game Flow
+
+[*] --> MainMenu
+MainMenu --> FirstLevel : Play
+FirstLevel --> Pause : P / Esc
+Pause --> FirstLevel : P / Esc / Click
+FirstLevel --> GameOver : Caught by hazard
+GameOver --> FirstLevel : Enter / Space / Click
+FirstLevel --> Win : All items + exit reached
+Win --> [*] : Enter / Esc / Click
+
+@enduml
