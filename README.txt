@@ -1,84 +1,86 @@
-Stealth Escape - Quick Start
+================================================================
+  STEALTH ESCAPE v1.0.0
+  2D stealth platformer — collect items, avoid detection, escape
+================================================================
 
-Team:
+TEAM
   Yerkebulan Bissen
   Yernur Beisenbek
   Akgul Daulet
 
-Course:
+COURSE
   SDP Group Project, 2nd Year
 
-Platform:
+PLATFORM
   Desktop Java / libGDX
 
-Game Summary:
-  Stealth Escape is a 2D stealth platformer where the player must collect all
-  items, avoid guards, lasers, traps, and surveillance cameras, then reach the
-  exit door to escape the level.
+----------------------------------------------------------------
+ABOUT THE GAME
+----------------------------------------------------------------
+Stealth Escape is a 2D stealth platformer. The player infiltrates
+a guarded facility, collects all required items while avoiding
+guards, lasers, traps, and surveillance cameras, then escapes
+through the exit door.
 
-Win Condition:
-  Collect all required items and reach the exit door.
+  Win:  Collect all items and reach the exit door
+  Lose: Detected by a guard or camera, or touch a laser/trap
 
-Lose Condition:
-  The player loses if detected by guards or cameras, or if they touch lasers
-  or traps.
+----------------------------------------------------------------
+CONTROLS
+----------------------------------------------------------------
+  A / Left Arrow   Move left
+  D / Right Arrow  Move right
+  W / Up Arrow     Climb stairs up
+  S / Down Arrow   Climb stairs down
+  H                Hide
+  P / Esc          Pause / Resume
+  Enter / Space    Continue from Game Over
 
-Controls:
-  A / Left Arrow  - Move left
-  D / Right Arrow - Move right
-  W / Up Arrow    - Climb stairs up
-  S / Down Arrow  - Climb stairs down
-  H               - Hide
-  P / Esc         - Pause or resume
-  Enter / Space   - Continue from Game Over
+----------------------------------------------------------------
+HOW TO RUN
+----------------------------------------------------------------
+  java -jar desktop-1.0.jar
 
-Build:
+  Requires Java 17+. No installation needed.
+
+----------------------------------------------------------------
+HOW TO BUILD FROM SOURCE
+----------------------------------------------------------------
   .\gradlew.bat clean
   .\gradlew.bat desktop:dist
 
-Run:
-  java -jar .\desktop\build\libs\desktop-1.0.jar
+  Output: desktop/build/libs/desktop-1.0.jar
 
-Project Structure:
-  core/    - Main game logic
-  desktop/ - Desktop launcher
-  assets/  - Sprites and texture atlases
-  doc/     - UML diagrams and level sketches
+----------------------------------------------------------------
+PROJECT STRUCTURE
+----------------------------------------------------------------
+  core/       Game logic (player, enemies, screens, states)
+  desktop/    Desktop launcher
+  assets/     Sprites, texture atlases, animations
+  doc/        UML class diagram, game flow, level sketch
+  GDD.pdf     Game Design Document
+  TESTING.md  Test checklist and bug log
+  README.md   Full documentation
 
-Included Documentation:
-  README.md
-  README.txt
-  GDD.md
-  GDD.pdf
-  TESTING.md
-  doc/classes.png
-  doc/game-flow.png
-  doc/level-sketch.png
+----------------------------------------------------------------
+DESIGN PATTERNS USED
+----------------------------------------------------------------
+  State Machine         StateManager + State classes manage
+                        Menu, Game, Pause, GameOver, Win screens
 
-Testing:
-  The project was built with Gradle and tested as a runnable desktop JAR.
+  Single Responsibility PlayerController handles only input,
+                        Player handles only player state
 
-  Manually tested features:
-  - Main menu
-  - Player movement
-  - Stair climbing
-  - Hide mechanic
-  - Pause menu
-  - Item collection
-  - Guard patrol system
-  - Lasers
-  - Surveillance cameras
-  - Traps
-  - Checkpoints
-  - Game Over screen
-  - Win screen
+  Separation of Concerns
+                        Assets, Collider, Camera are isolated
+                        utility classes
 
-Known Issues:
+----------------------------------------------------------------
+KNOWN ISSUES
+----------------------------------------------------------------
   The game currently contains one polished playable level.
 
-Submission Notes:
-  Recommended runnable file:
-  desktop/build/libs/desktop-1.0.jar
-
-  Recommended GitHub Release tag:
-  v1.0.0
+================================================================
+  GitHub Release: v1.0.0
+  Run file: desktop-1.0.jar
+================================================================

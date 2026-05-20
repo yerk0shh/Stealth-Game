@@ -251,7 +251,6 @@ public class Player
 
         climb(deltaTime, up, down);
 
-        //Desktop
         if(Gdx.input.isKeyJustPressed(Input.Keys.H))
         {
             if (playerAction == PlayerActions.HIDING)
@@ -264,7 +263,6 @@ public class Player
             }
         }
 
-        // Mobile hiding via canHide removed (desktop only — H key handled above)
 
     }
 
@@ -355,10 +353,6 @@ public class Player
         }
         else stairsDown = true;
 
-        //if(s.getCollider().getRectangle().overlaps(playerStairsCollider.getRectangle()))
-
-
-        //if(s.getCollider().getRectangle().overlaps(playerCollider.getRectangle()))
         if(s.getCollider().getRectangle().contains(playerStairsCollider.getRectangle()) && playerAction != playerAction.DYING)
         {
             playerAction = playerAction.STAIRS;
@@ -380,16 +374,6 @@ public class Player
             spriteBatch.draw(getFrameFromCurrentAnimation(Gdx.graphics.getDeltaTime()), position.x, position.y, playerWidth, playerHeight);
 
         spriteBatch.end();
-
-        /*
-        
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(1, 0, 0, 1);
-        playerCollider.DrawRectangle(shapeRenderer);
-        shapeRenderer.setColor(Color.BLUE);
-        playerStairsCollider.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-        */
     }
 
     public void dispose()

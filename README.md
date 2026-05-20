@@ -1,101 +1,100 @@
 # Stealth Escape
 
+> 2D stealth platformer built with Java and libGDX — collect items, avoid detection, escape the level.
+
+**SDP Group Project · 2nd Year · Desktop (Java)**
+
+---
+
 ## Team
 
-- Yerkebulan Bissen
-- Yernur Beisenbek
-- Akgul Daulet
+| Name | GitHub                  |
+|---|-------------------------|
+| Yerkebulan Bissen | @yerk0shh               |
+| Yernur Beisenbek | @Takahashi0021 |
+| Akgul Daulet | @dauletovaakgul213-stack                        |
 
-## Course
+---
 
-SDP Group Project, 2nd Year
+## About the Game
 
-## Platform
+**Stealth Escape** is a 2D side-scrolling stealth platformer. The player infiltrates a guarded facility, collects all required items while avoiding guards, lasers, traps, and surveillance cameras, then escapes through the exit door.
 
-Desktop Java / libGDX
+- **Win:** Collect all items → reach the exit door
+- **Lose:** Detected by a guard or camera, or touch a laser/trap
 
-## Game Summary
-
-**Stealth Escape** is a 2D stealth platformer where the player must collect all items, avoid guards, lasers, traps, and surveillance cameras, then reach the exit door to escape the level.
-
-## Win Condition
-
-Collect all required items and reach the exit door.
-
-## Lose Condition
-
-The player loses if detected by guards or cameras, or if they touch lasers or traps.
+---
 
 ## Controls
 
 | Key | Action |
-| --- | --- |
-| A / Left Arrow | Move left |
-| D / Right Arrow | Move right |
-| W / Up Arrow | Climb stairs up |
-| S / Down Arrow | Climb stairs down |
-| H | Hide |
-| P / Esc | Pause or resume |
-| Enter / Space | Continue from Game Over |
+|---|---|
+| `A` / `←` | Move left |
+| `D` / `→` | Move right |
+| `W` / `↑` | Climb stairs up |
+| `S` / `↓` | Climb stairs down |
+| `H` | Hide |
+| `P` / `Esc` | Pause / Resume |
+| `Enter` / `Space` | Continue from Game Over |
 
-## Build
+---
+
+## How to Run
+
+Download `desktop-1.0.jar` from [Releases](../../releases/tag/v1.0.0) and run:
+
+```bash
+java -jar desktop-1.0.jar
+```
+
+> Requires Java 17+. No installation needed.
+
+---
+
+## How to Build from Source
 
 ```powershell
 .\gradlew.bat clean
 .\gradlew.bat desktop:dist
 ```
 
-## Run
+Output: `desktop/build/libs/desktop-1.0.jar`
 
-```powershell
-java -jar .\desktop\build\libs\desktop-1.0.jar
-```
+---
 
 ## Project Structure
 
-- `core/` — Main game logic
+- `core/` — Game logic (player, enemies, screens, states)
 - `desktop/` — Desktop launcher
-- `assets/` — Sprites and texture atlases
-- `doc/` — UML diagrams and level sketches
+- `assets/` — Sprites, texture atlases, animations
+- `doc/` — UML class diagram, game flow, level sketch
+- `GDD.pdf` — Game Design Document
+- `TESTING.md` — Test checklist and bug log
 
-## Included Documentation
+---
 
-- `GDD.md`
-- `TESTING.md`
-- `doc/classes.png`
-- `doc/game-flow.png`
-- `doc/level-sketch.png`
+## Documentation
 
-## Testing
+| File | Description |
+|---|---|
+| [`GDD.pdf`](GDD.pdf) | Game Design Document |
+| [`TESTING.md`](TESTING.md) | Manual test checklist + bug log |
+| [`doc/classes.png`](doc/classes.png) | UML Class Diagram |
+| [`doc/game-flow.png`](doc/game-flow.png) | Game Flow Diagram |
+| [`doc/level-sketch.png`](doc/level-sketch.png) | Level Sketch |
 
-The project was built with Gradle and tested as a runnable desktop JAR.
+---
 
-### Manually Tested Features
+## Design Patterns Used
 
-- Main menu
-- Player movement
-- Stair climbing
-- Hide mechanic
-- Pause menu
-- Item collection
-- Guard patrol system
-- Lasers
-- Surveillance cameras
-- Traps
-- Checkpoints
-- Game Over screen
-- Win screen
+| Pattern | Where |
+|---|---|
+| **State Machine** | `StateManager` + `State` — manages Menu, Game, Pause, GameOver, Win screens |
+| **Single Responsibility** | `PlayerController` handles only input; `Player` handles only state |
+| **Separation of Concerns** | `Assets`, `Collider`, `Camera` are isolated utility classes |
+
+---
 
 ## Known Issues
 
-The game currently contains one polished playable level.
-
-## Submission Notes
-
-Recommended runnable file:
-
-`desktop/build/libs/desktop-1.0.jar`
-
-Recommended GitHub Release tag:
-
-`v1.0.0`
+- The game contains one playable level.

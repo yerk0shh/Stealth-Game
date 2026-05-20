@@ -19,11 +19,8 @@ public class PlayerController {
     boolean upDownVisible;
 
     private Player player;
-    private final Vector3 currentAccelerometerValues = new Vector3(0, 0, 0);
 
-    public PlayerController(Texture rightN, Texture rightP, Texture leftN, Texture leftP,
-                            Texture upN, Texture upP, Texture downN, Texture downP,
-                            Texture cameraTexture, OrthographicCamera camera, Player player) {
+    public PlayerController(OrthographicCamera camera, Player player) {
         this.player = player;
     }
 
@@ -34,10 +31,8 @@ public class PlayerController {
     public boolean isPressCameraButton() { return pressCameraButton; }
     public boolean isUpDownVisible()     { return upDownVisible; }
     public void setUpDownVisible(boolean v) { this.upDownVisible = v; }
-    public Vector3 getCurrentAccelerometerValues() { return currentAccelerometerValues; }
 
-    // In original: isLaydown() used accelerometer for hiding on mobile.
-    // On desktop H key handles hiding directly in Player.update, so always return false here.
+
     public boolean isLaydown() { return false; }
 
     public void update(float deltaTime, OrthographicCamera camera) {
@@ -60,7 +55,6 @@ public class PlayerController {
             pressLeft  = false;
             pressRight = true;
         } else {
-            // Exact copy of original else branch: reset to IDLE only if not on stairs
             if (player.playerAction != Player.PlayerActions.STAIRS)
                 player.playerAction = Player.PlayerActions.IDLE;
 
@@ -75,6 +69,5 @@ public class PlayerController {
     }
 
     public void draw(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer) {
-        // no on-screen buttons on desktop
     }
 }

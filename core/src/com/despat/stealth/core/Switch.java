@@ -101,12 +101,6 @@ public class Switch
         spriteBatch.draw(getFrameFromCurrentAnimation(Gdx.graphics.getDeltaTime()), position.x, position.y, 70, 100);
         spriteBatch.end();
 
-        /*
-        shapeRenderer.begin();
-        collider.DrawRectangle(shapeRenderer);
-        colliderForPlayer.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-        */
     }
 
 }

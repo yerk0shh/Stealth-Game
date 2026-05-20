@@ -191,9 +191,6 @@ public class Guard
             case MoveLeft:
                 goLeft = true;
 
-                /*if(guardPosition.x >= waypointSoundSource.x && goForSound && !goForHallway)
-                    waypointDestination = waypointSoundSource;
-                else if(waypointDestination != waypointSoundSource && !goForSound && goForHallway)*/
                 waypointDestination = waypointLeft;
 
                 moveLeft = true;
@@ -208,10 +205,6 @@ public class Guard
             case MoveRight:
 
                 goLeft = false;
-
-                /*if(guardPosition.x <= waypointSoundSource.x && goForSound && !goForHallway)
-                    waypointDestination = waypointSoundSource;
-                else if(waypointDestination != waypointSoundSource && !goForSound && goForHallway)*/
                     waypointDestination = waypointRight;
 
                 moveLeft = false;
@@ -327,7 +320,6 @@ public class Guard
                 goLeft = true;
                 guardAction = GuardPatrol.CheckNoise;
                 waypointDestination = waypointSoundSource;
-                //soundWave.radius = soundWave.maxCircleRadius;
                 stopTime = 0;
                 soundwaves.remove(soundWave);
                 return;
@@ -338,7 +330,6 @@ public class Guard
                 goLeft = false;
                 guardAction = GuardPatrol.CheckNoise;
                 waypointDestination = waypointSoundSource;
-                //soundWave.radius = soundWave.maxCircleRadius;
                 stopTime = 0;
                 soundwaves.remove(soundWave);
                 return;
@@ -420,25 +411,6 @@ public class Guard
 
         spriteBatch.end();
 
-
-        /*
-        
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(1, 0, 0, 1);
-        guardColliderLeft.DrawCircle(shapeRenderer);
-        shapeRenderer.setColor(0, 1, 0, 1);
-        guardColliderRight.DrawCircle(shapeRenderer);
-        visionCollider.DrawRectangle(shapeRenderer);
-        bodyCollider.DrawRectangle(shapeRenderer);
-
-        shapeRenderer.end();
-
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        //shapeRenderer.setColor(0, 1, 0, 1);
-        //shapeRenderer.polygon(polygon.getVertices());
-        shapeRenderer.end();
-        */
     }
 
     public void Update2(float deltaTime)

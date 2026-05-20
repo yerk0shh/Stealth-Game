@@ -48,7 +48,6 @@ public class FirstLevel extends State {
     private List<Platform> platforms = new ArrayList<Platform>();
     private List<Platform> walls = new ArrayList<Platform>();
 
-    private float peekAngleX, peekAngleY;
     private Sprite background1, fallBackground;
     private Vector2 positionBG1, positionBG2, positionBG3, positionBG4, backgroundScale;
 
@@ -74,7 +73,6 @@ public class FirstLevel extends State {
 
     private Laser specialLaser;
     private Vector3 input;
-    private Collider backgroundCollider;
 
     private Item item;
     private Collider finishCollider;
@@ -133,10 +131,7 @@ public class FirstLevel extends State {
         message = itemsFound + "/" + itemTotal;
 
         player = new Player(-150, 500, platforms, walls);
-        playerController = new PlayerController(
-                null, null, null, null,
-                null, null, null, null,
-                null, interfaceCamera, player);
+        playerController = new PlayerController(interfaceCamera, player);
 
 
         firstTime = true;
@@ -197,14 +192,10 @@ public class FirstLevel extends State {
 
             if (playerController.isPressCameraButton()) {
                 player.canHide = false;
-                peekAngleX = playerController.getCurrentAccelerometerValues().y;
-                peekAngleY = playerController.getCurrentAccelerometerValues().x;
-                worldCamera.position.x = player.getPosition().x + player.getPlayerWidth() / 2 + (int) peekAngleX * 3;
-                worldCamera.position.y = player.getPosition().y + player.getPlayerHeight() / 2 + 140 - (int) peekAngleY * 3;
+                worldCamera.position.x = player.getPosition().x + player.getPlayerWidth() / 2;
+                worldCamera.position.y = player.getPosition().y + player.getPlayerHeight() / 2 + 140;
             } else {
-                player.canHide = playerController.isLaydown();
-                peekAngleX = 0;
-                peekAngleY = 0;
+                player.canHide = false;
                 worldCamera.position.x = player.getPosition().x + player.getPlayerWidth() / 2;
                 worldCamera.position.y = player.getPosition().y + player.getPlayerHeight() / 2;
             }
@@ -436,8 +427,7 @@ public class FirstLevel extends State {
         specialLaser.laserActions = Laser.LaserActions.ON;
         lasers.add(specialLaser);
 
-        backgroundCollider = new Collider(new Vector2(wallWidth, groundHeight),
-                groundWidth * 10 - wallWidth * 2, wallHeight * 6 - groundHeight);
+
 
         items.add(new Item(new Vector2(1150, 500)));
         items.add(new Item(new Vector2(70, 300)));

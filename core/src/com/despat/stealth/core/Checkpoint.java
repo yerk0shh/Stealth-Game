@@ -29,7 +29,7 @@ public class Checkpoint
     public void update(Collider col)
     {
         collider.Update(new Vector2(position.x, position.y));
-        //collider.CheckCollisionRectangle(col.getRectangle());
+
     }
 
     public void render(ShapeRenderer shapeRenderer)

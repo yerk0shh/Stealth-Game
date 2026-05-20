@@ -131,11 +131,6 @@ public class Camera
         spriteBatch.draw(getFrameFromCurrentAnimation(Gdx.graphics.getDeltaTime()), cameraPosition.x, cameraPosition.y, 400, 160);
         spriteBatch.end();
 
-        /*
-        shapeRenderer.begin();
-        collider.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-        */
     }
 
 }
