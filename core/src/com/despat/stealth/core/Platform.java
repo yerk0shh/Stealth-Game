@@ -42,10 +42,4 @@ public class Platform
         spriteBatch.end();
     }
 
-    public void DrawCollider(ShapeRenderer shapeRenderer)
-    {
-        shapeRenderer.begin();
-        collider.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-    }
 }

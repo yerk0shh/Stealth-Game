@@ -2,21 +2,19 @@
 
 title Stealth Escape - Level Sketch
 
-rectangle "Floor 4\nItem + camera route" as F4
-rectangle "Floor 3\nGuard patrol + laser switch" as F3
-rectangle "Floor 2\nItems + stairs + trap" as F2
+rectangle "Floor 3\nItems + cameras" as F3
+rectangle "Floor 2\nGuard patrol + lasers + switch" as F2
 rectangle "Floor 1\nStart, checkpoints, exit" as F1
 
 F1 -up-> F2 : stairs
 F2 -up-> F3 : stairs
-F3 -up-> F4 : stairs
 
 node "Start" as Start
 node "Checkpoint 1" as C1
 node "Checkpoint 2" as C2
 node "Exit door\nopens after all items" as Exit
 node "Guard patrols" as Guards
-node "Lasers / cameras / traps" as Hazards
+node "Lasers / cameras" as Hazards
 node "Collectibles" as Items
 
 Start --> F1
@@ -27,10 +25,8 @@ Guards --> F2
 Guards --> F3
 Hazards --> F2
 Hazards --> F3
-Hazards --> F4
 Items --> F1
 Items --> F2
 Items --> F3
-Items --> F4
 
 @enduml

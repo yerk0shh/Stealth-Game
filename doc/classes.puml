@@ -1,0 +1,60 @@
+@startuml
+
+title Stealth Escape - Class Diagram
+
+package "UI / State Machine" {
+    class GameManager
+    class StateManager
+    abstract class State
+    class MenuState
+    class FirstLevel
+    class PauseState
+    class GameOverState
+    class WinState
+
+    GameManager --> StateManager
+    StateManager --> State
+    State <|-- MenuState
+    State <|-- FirstLevel
+    State <|-- PauseState
+    State <|-- GameOverState
+    State <|-- WinState
+}
+
+package "Core Entities" {
+    class Player
+    class Guard
+    class Laser
+    class Camera
+    class Item
+    class Platform
+    class Stair
+    class Checkpoint
+    class Switch
+    class TouchBlock
+    class SoundWave
+}
+
+package "Controllers / Utils" {
+    class PlayerController
+    class Assets
+    class Collider
+    interface Renderable
+    interface Updatable
+}
+
+Player ..|> Renderable
+Player ..|> Updatable
+Guard ..|> Renderable
+FirstLevel --> Player
+FirstLevel --> Guard
+FirstLevel --> Laser
+FirstLevel --> Camera
+FirstLevel --> Item
+FirstLevel --> Stair
+FirstLevel --> Checkpoint
+FirstLevel --> Switch
+FirstLevel --> TouchBlock
+PlayerController --> Player
+
+@enduml
