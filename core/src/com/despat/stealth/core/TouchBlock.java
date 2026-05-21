@@ -89,10 +89,6 @@ public class TouchBlock
 
     public void DrawColl(ShapeRenderer shapeRenderer)
     {
-        for (SoundWave soundWave : soundwaves)
-        {
-            soundWave.DrawCollider(shapeRenderer);
-        }
     }
 
 
