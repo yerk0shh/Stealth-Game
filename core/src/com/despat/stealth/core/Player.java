@@ -12,8 +12,9 @@ import com.despat.stealth.utils.Collider;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class Player
+import com.despat.stealth.utils.Renderable;
+import com.despat.stealth.utils.Updatable;
+public class Player implements Updatable, Renderable
 {
     public enum PlayerActions
     {

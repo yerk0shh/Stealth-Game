@@ -140,11 +140,4 @@ public class Laser
         spriteBatch.end();
     }
 
-    public void DrawCollider(ShapeRenderer shapeRenderer)
-    {
-        shapeRenderer.begin();
-        collider.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-    }
-
 }

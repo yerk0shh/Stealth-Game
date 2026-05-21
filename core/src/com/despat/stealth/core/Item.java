@@ -61,15 +61,4 @@ public class Item
         spriteBatch.draw(getFrameFromCurrentAnimation(Gdx.graphics.getDeltaTime()), position.x, position.y, itemMeasures.x, itemMeasures.y);
         spriteBatch.end();
     }
-
-    public void DrawCollider(ShapeRenderer shapeRenderer)
-    {
-        shapeRenderer.begin();
-        collider.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-    }
-
-
-
-
 }

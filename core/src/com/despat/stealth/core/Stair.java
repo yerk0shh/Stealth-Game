@@ -40,13 +40,5 @@ public class Stair
         spriteBatch.end();
     }
 
-    public void DrawCollider(ShapeRenderer shapeRenderer)
-    {
-        shapeRenderer.begin();
-        collider.DrawRectangle(shapeRenderer);
-        shapeRenderer.setColor(Color.BLUE);
-        auxCollider.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-    }
 
 }

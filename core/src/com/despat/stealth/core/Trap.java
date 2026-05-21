@@ -32,11 +32,5 @@ public class Trap
     {
     }
 
-    public void Draw(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer)
-    {
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        collider.DrawRectangle(shapeRenderer);
-        shapeRenderer.end();
-    }
 
 }

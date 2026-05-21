@@ -32,3 +32,10 @@ When the player collects all items and reaches the exit, the Win screen is shown
 
 ## Art Style
 The game uses simple 2D pixel-style sprites with a dark stealth-themed visual style. The UI is minimal and focuses on the item counter, menu, pause screen, game over screen, and win screen.
+
+## Design Patterns and SOLID
+
+- **Single Responsibility**: `PlayerController` handles only input, `Player` handles only state.
+- **Open/Closed**: New enemy types can extend the base without modifying existing classes.
+- **State Pattern**: `StateManager` manages all screens (Menu, Game, Pause, GameOver, Win).
+- **Separation of Concerns**: `Assets`, `Collider`, `Camera` are isolated utility classes.

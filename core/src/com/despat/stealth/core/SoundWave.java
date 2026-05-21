@@ -53,12 +53,4 @@ public class SoundWave
 
     }
 
-    public void DrawCollider(ShapeRenderer shapeRenderer)
-    {
-        shapeRenderer.setAutoShapeType(true);
-        shapeRenderer.begin();
-        soundWaveCollider.DrawCircle(shapeRenderer);
-        shapeRenderer.end();
-    }
-
 }

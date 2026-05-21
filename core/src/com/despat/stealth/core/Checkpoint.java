@@ -31,13 +31,4 @@ public class Checkpoint
         collider.Update(new Vector2(position.x, position.y));
 
     }
-
-    public void render(ShapeRenderer shapeRenderer)
-    {
-        shapeRenderer.begin();
-
-        collider.DrawRectangle(shapeRenderer);
-
-        shapeRenderer.end();
-    }
 }

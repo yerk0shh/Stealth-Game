@@ -17,7 +17,10 @@ import com.despat.stealth.utils.Collider;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Guard
+import com.despat.stealth.utils.Renderable;
+import com.despat.stealth.utils.Updatable;
+
+public class Guard implements Renderable
 {
     private float guardWidth;
     private float guardHeight;
