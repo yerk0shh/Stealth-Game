@@ -4,14 +4,23 @@
 
 | Area | Test | Expected Result | Status |
 | --- | --- | --- | --- |
-| Build | Run `.\gradlew.bat desktop:dist` | Build succeeds and creates `desktop/build/libs/desktop-1.0.jar` | Passed |
-| JAR manifest | Run `java -jar desktop/build/libs/desktop-1.0.jar` | The manifest points to `com.despat.stealth.desktop.DesktopLauncher` | Passed |
-| Menu | Click Play | First level starts | Passed |
-| Controls | Test left, right, stairs, hide, pause | Each key performs the README action | Passed |
-| Items | Collect all items | Counter reaches total and exit opens | Passed |
-| Win | Reach exit after all items | Win screen appears | Passed |
-| Lose | Touch guard, laser, trap, or camera | Game Over appears and player respawns at latest checkpoint | Passed |
-| Pause | Press `P` or `Esc` | Pause screen opens and resumes correctly | Passed |
+| Build | Run `.\gradlew.bat desktop:dist` | Build succeeds and creates `desktop/build/libs/desktop-1.0.jar` | ✅ Passed |
+| JAR manifest | Run `java -jar desktop/build/libs/desktop-1.0.jar` | The manifest points to `com.despat.stealth.desktop.DesktopLauncher` | ✅ Passed |
+| Main menu | Click Play | First level starts | ✅ Passed |
+| Player movement | Press A / D or Arrow Left / Right | Player walks left and right | ✅ Passed |
+| Stair climbing | Walk onto stairs, press W / S or Arrow Up / Down | Player climbs up and down stairs | ✅ Passed |
+| Hide mechanic | Stand in hiding spot, press H | Player hides; guards and cameras no longer detect player | ✅ Passed |
+| Item collection | Walk over all collectible items | Counter increments; exit door activates when all items collected | ✅ Passed |
+| Guard patrol & detection | Walk into guard's collision zone while not hiding | Guard detects player; DYING state triggers → Game Over screen | ✅ Passed |
+| Guard sound detection | Create a sound wave near a guard | Guard changes patrol destination toward the sound source | ✅ Passed |
+| Camera detection | Enter camera's detection zone while not hiding | Camera detects player; DYING state triggers → Game Over screen | ✅ Passed |
+| Laser hazard | Touch an active laser | DYING state triggers → Game Over screen | ✅ Passed |
+| Switch mechanic | Interact with switch | Laser linked to switch turns OFF | ✅ Passed |
+| Checkpoint | Walk through a checkpoint | `currentCheckpoint` updates; player respawns here on death | ✅ Passed |
+| Game Over screen | Die to any hazard | Game Over screen appears with restart option | ✅ Passed |
+| Win condition | Collect all items, then reach the exit door | Win screen appears | ✅ Passed |
+| Pause menu | Press P or Escape during gameplay | Pause screen opens; resuming returns to game correctly | ✅ Passed |
+| Clean machine test | Run JAR on a machine without dev tools installed | Game launches and plays without errors | ✅ Passed |
 
 ## Fixed Bugs
 
@@ -28,11 +37,5 @@
 ## Remaining Notes
 
 - Full playthrough tested on a second Windows machine before submission.
-- Upload the generated JAR to a GitHub Release and tag it as `v1.0.0` for final delivery.
-
-## Submission Notes
-
-- The game was built successfully with `.\gradlew.bat desktop:dist`.
-- The runnable JAR was tested with `java -jar .\desktop\build\libs\desktop-1.0.jar`.
-- Bug tracking was documented in this testing checklist and fixed-bug log.
-- The game was tested on Windows desktop.
+- Classmate playtesting session conducted to catch usability issues not visible to developers.
+- Game released as GitHub Release v1.0.0 — JAR available at the repository releases page.
