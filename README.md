@@ -82,12 +82,12 @@ TESTING.md  — Test checklist and bug log
 
 ## Design Patterns
 
-| Pattern | Where |
-|---------|-------|
-| **State Machine** | `StateManager` + `State` — manages Menu, Game, Pause, GameOver, Win screens |
-| **Single Responsibility** | `PlayerController` handles only input; `Player` handles only state |
-| **Utility Classes** | `Assets`, `Collider`, `Camera` are isolated helper classes |
-
+| Pattern | Where | How |
+|---------|-------|-----|
+| **State Pattern** | `StateManager` + `State` | All screens (`MenuState`, `FirstLevel`, `PauseState`, `GameOverState`, `WinState`) extend abstract `State`. `StateManager` uses a stack — `push()` to open a screen, `pop()` to return. `GameManager` only calls `update()` and `render()` on the top state. |
+| **Strategy Pattern** | `Guard` + `GuardPatrol` enum | Guard switches behavior at runtime via `guardAction`: `MoveLeft`, `MoveRight`, `CheckNoise`, `CheckArea`, `MoveToStartPoint`. When a `SoundWave` is detected, the guard changes strategy to `CheckNoise` and moves toward the sound source. |
+| **Observer Pattern** | `TouchBlock` → `Guard` via shared `soundwaves` list | `TouchBlock` creates `SoundWave` objects and adds them to a shared list. `Guard` checks the same list every frame in `CheckCollisionWithSoundWaves()`. No direct reference between the two classes — they communicate only through the shared list. |
+ 
 ---
 
 ## SOLID Principles
